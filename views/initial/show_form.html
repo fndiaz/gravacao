@@ -1,0 +1,88 @@
+{{extend 'layout.html'}}
+
+
+{{block center}}
+<div class="span5" >
+<div class="well">
+<h4>Pastas de áudio</h4>
+<br>
+<p>Data: {{=session.mes}}/{{=session.ano}}</p>
+
+<table class="table table-bordered table-striped table-hover">
+    <thead>
+      <tr>
+        <th>Pastas</th>
+    </tr>
+    </thead>
+    <tbody>
+{{
+for pasta in session.pastas:
+}}<tr><td>{{=pasta}}</tr></td>{{
+pass
+}}
+</tbody>
+</table>
+</div>
+</div>
+
+<div class="span5" >
+<div class="well">
+<h4>Ações Disponíveis</h4>
+<br>
+<table class="table table-bordered table-striped table-hover">
+    <thead>
+    	<tr>
+    		<td><a id="gerar" class="btn" data-loading-text="Gerando..." href="gera_zip" rel="popover" data-content="Clique aqui para gerar o arquivo .zip" data-original-title="Gerar backup">Gerar</a></td>
+    		{{
+    		if opc == 'dfg':}}
+    		<td><a id="download" disabled="disabled" class="btn" href="#" rel="popover" data-content="É necessário gerar o arquivo .zip primeiro" data-original-title="Fazer download">download</a></td>
+    		{{session.flash = '.zip gerado com sucesso'
+            pass
+    		else:}}
+    		<td><a id="download" class="btn" href="/gravacao/static/grava_down/grava.zip" rel="popover" data-content="Clique aqui para fazer o download do .zip gerado" data-original-title="Fazer download">download</a></td>{{
+    		pass}}
+
+    		<td><a id="remover" onclick="funcao()" class="btn" href="#" rel="popover" data-content="Certifique-se que tenha feito o backup antes de prosseguir com a remoção!" data-original-title="Remover gravações">Remover</a></td>
+
+    	</tr>
+    </thead>
+    </table>	
+</div>
+</div>
+
+<script src="{{=URL('static','js/bootstrap.min.js')}}"></script>
+<script>
+$(function ()  
+{ $("#gerar").popover({ placement: "top", trigger: "hover" });  
+});  
+
+$('#gerar').button();
+
+$('#gerar').click(function() {
+    $(this).button('loading');
+});
+
+$(function () 
+{ $("#download").popover({ placement: "top", trigger: "hover" });  
+});  
+
+$('#download').button();
+
+$(function ()  
+{ $("#remover").popover({ placement: "top", trigger: "hover" });  
+}); 
+
+$('#remover').button();
+
+function funcao(){  
+        decisao = confirm("Cuidado, você está prestes a remover as gravações da data selecionada, só confirme se tiver certeza do que está fazendo!");
+        if(decisao){
+            location.href="/gravacao/initial/remover";
+        }  
+    } 
+
+
+</script>
+
+
+{{end}}

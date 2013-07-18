@@ -1,0 +1,18 @@
+{{
+
+def soma(x, y):
+	return x +y
+}}
+
+<p>{{=nome}} {{=sobrenome}}</p>
+<ul>
+{{for a in lista:}}
+<li>{{=a.replace("i", "ii").upper()}}</li>
+{{pass}}
+</ul> 
+
+{{if True:}}
+	passou no if
+{{pass}}</br>
+
+soma é igual a {{=soma(5,5)}}

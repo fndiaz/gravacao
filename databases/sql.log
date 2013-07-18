@@ -1,0 +1,9 @@
+timestamp: 2013-07-18T09:47:04.397668
+CREATE TABLE gravacao_lg(
+    id INT AUTO_INCREMENT NOT NULL,
+    datetime VARCHAR(255),
+    acao VARCHAR(255),
+    pastas VARCHAR(255),
+    PRIMARY KEY(id)
+) ENGINE=InnoDB CHARACTER SET utf8;
+success!

@@ -1,0 +1,11 @@
+{{extend 'layout.html'}}
+
+{{block center}}
+
+<ul class="breadcrumb">
+        <li><a href="{{=URL('initial', funcao_ant1)}}">{{=nome_ant1}}</a> <span class="divider">/</span></li>
+        <li>{{=nome_atual}}</li>
+      </ul>
+
+{{=grid}}
+{{end}}

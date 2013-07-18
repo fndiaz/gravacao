@@ -1,0 +1,59 @@
+{{extend 'layout.html'}}
+
+
+{{block center}}
+<div class="span4" >
+{{=form}}
+</div>
+
+
+{{	
+if not tabela:}}
+	<div class="span6" >
+	</div>
+{{pass
+else:}}
+	<div class="span6" >
+	<table class="table table-bordered table-striped table-hover">
+    <thead>
+      <tr>
+        <th>Data</th>
+        <th>Quantidade</th>
+        <th>Ações</th>
+    </tr>
+    </thead>
+    <tbody>
+	
+	<tr>
+        <td>{{=tabela[0]}}/{{=tabela[1]}}</td>
+        <td>{{=tabela[2]}} gravações encontradas</td>
+        <td><a id="button" class="btn" data-loading-text="Processando..." href="gravacao/initial/gera_pdf?opc=dfg" rel="popover" data-content="Para que você possa analisar melhor, faremos o processamento dos arquivos" data-original-title="Processamento de backup">Processar</a></td>
+      </tr>
+
+</tbody>
+</table>
+
+</div>
+{{pass
+
+}}
+
+
+
+<script src="{{=URL('static','js/bootstrap.min.js')}}"></script>
+<script>
+$(function ()  
+{ $("#button").popover({ placement: "top", trigger: "hover" });  
+});  
+
+$('#button').button();
+
+$('#button').click(function() {
+    $(this).button('loading');
+});
+</script>
+
+
+
+{{end}}
+

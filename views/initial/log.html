@@ -1,0 +1,32 @@
+{{extend 'layout.html'}}
+
+{{block center}}
+<div class="span7" >
+
+<table class="table table-bordered table-striped table-hover">
+    <thead>
+      <tr>
+        <th>Data</th>
+        <th>Ação</th>
+        <th>Backup</th>
+    </tr>
+    </thead>
+    <tbody>
+	
+{{
+for i in log:
+}}<tr>
+<td>{{=i[1]}}</td>
+<td>{{=i[2]}}</td>
+<td>{{=i[3]}}</td>
+</tr>{{
+pass
+}}
+
+</tbody>
+</table>
+
+
+
+</div>
+{{end}}

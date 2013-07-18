@@ -1,0 +1,164 @@
+{{extend 'layout.html'}}
+
+
+{{block center}}
+{{
+	
+	id_cliente = request.vars['c']
+	id_host = request.vars['f']
+	nome_funcao = request.vars['n']
+	nome_funcao1 = request.vars['n1']
+	funcao = request.vars['p']
+	funcao1 = request.vars['p1']
+}}
+
+
+<ul class="breadcrumb">
+        <li><a href="{{=URL('initial', funcao_ant1)}}">{{=nome_ant1}}</a> <span class="divider">/</span></li>
+        <li><a href="{{=URL('initial', funcao_ant, vars=dict(f=id_cliente, n1=nome_ant1, p1=funcao_ant1))}}">{{=nome_ant}}</a> <span class="divider">/</span></li>
+        <li>Detalhes</li>
+      </ul>
+
+<div class="span5" >
+<div class="well">
+<h3><img src="{{=URL('static', 'images', args=(detalhes.distro.imagem))}}">	
+<span style="color: black;">{{=detalhes.distro.nome}}</span></h3></br>
+<p><b>Nome</b>:&nbsp;&nbsp;{{=detalhes.hosts.nome}}</p>
+<p><b>Servidor</b>:&nbsp;&nbsp;{{=detalhes.servidor.nome}}</p>
+<p><b>Cliente</b>:&nbsp;&nbsp;{{=detalhes.cliente.nome}}</p>
+</div>
+</div>
+
+<div class="span5">
+<div class="well">
+<h3><span style="color: black;">Acesso</span></h3><br>
+<p><b>IP de acesso</b>:&nbsp;&nbsp;{{=detalhes.hosts.ip_chegada}}</p>
+<p><b>Porta</b>:&nbsp;&nbsp;{{=detalhes.hosts.porta_ssh}}</p>
+<p><b>Gateway</b>:&nbsp;&nbsp;{{=detalhes.hosts.gateway}}</p>
+</div>
+</div>
+
+<div class="span10"><br><br>
+<div class="tabbable tabs-left">
+<ul class="nav nav-tabs span2">
+<li class="active"><a href="#tabs2-pane1" data-toggle="tab">Interface 1</a></li>
+<li><a href="#tabs2-pane2" data-toggle="tab">Interface 2</a></li>
+<li><a href="#tabs2-pane3" data-toggle="tab">Interface 3</a></li>
+<li><a href="#tabs2-pane4" data-toggle="tab">Interface 4</a></li>
+</ul>
+
+<div class="tab-content span5">
+<div id="tabs2-pane1" class="tab-pane active">
+<div class="well">
+	{{
+	if detalhes.hosts.if1 != "" or None:
+		}}<h4><span style="color: black;">{{=detalhes.hosts.if1}}</span></h4>
+	<p><b>IP</b>:&nbsp;&nbsp;{{=detalhes.hosts.ip1}}</p>
+	<p><b>Máscara</b>:&nbsp;&nbsp;{{=detalhes.hosts.masc1}}</p>
+	<p><b>Obs</b>:&nbsp;&nbsp;{{=detalhes.hosts.obs1}}</p>{{
+	
+	else:
+	}}<p style="text-align: center;">Aninda não existe uma interface de rede aqui!</p><br><br><br>
+	<p style="text-align: center;"><a class="btn" href="{{=URL('initial', 'edit_host', 
+	vars=dict(f=filtro, c=id_cliente, n=nome_funcao, n1=nome_funcao1, p1=funcao1, p=funcao))}}">Adicione</a></p>{{	
+	pass
+	}}
+</div>
+</div>
+
+<div id="tabs2-pane2" class="tab-pane">
+<div class="well">
+	{{
+	if detalhes.hosts.if2 != "" or None:
+		}}<h4><span style="color: black;">{{=detalhes.hosts.if2}}</span></h4>
+	<p><b>IP</b>:&nbsp;&nbsp;{{=detalhes.hosts.ip2}}</p>
+	<p><b>Máscara</b>:&nbsp;&nbsp;{{=detalhes.hosts.masc2}}</p>
+	<p><b>Obs</b>:&nbsp;&nbsp;{{=detalhes.hosts.obs2}}</p>{{
+	
+	else:
+	}}<p style="text-align: center;">Aninda não existe uma interface de rede aqui!</p><br><br><br>
+	<p style="text-align: center;"><a class="btn" href="{{=URL('initial', 'edit_host', 
+	vars=dict(f=filtro, c=id_cliente, n=nome_funcao, n1=nome_funcao1, p1=funcao1, p=funcao))}}">Adicione</a></p>{{	
+	pass
+	}}
+</div>
+</div>
+							    
+<div id="tabs2-pane3" class="tab-pane">
+<div class="well">
+	{{
+	if detalhes.hosts.if3 != "" or None:
+		}}<h4><span style="color: black;">{{=detalhes.hosts.if3}}</span></h4>
+	<p><b>IP</b>:&nbsp;&nbsp;{{=detalhes.hosts.ip3}}</p>
+	<p><b>Máscara</b>:&nbsp;&nbsp;{{=detalhes.hosts.masc3}}</p>
+	<p><b>Obs</b>:&nbsp;&nbsp;{{=detalhes.hosts.obs3}}</p>{{
+	
+	else:
+	}}<p style="text-align: center;">Aninda não existe uma interface de rede aqui!</p><br><br><br>
+	<p style="text-align: center;"><a class="btn" href="{{=URL('initial', 'edit_host', 
+	vars=dict(f=filtro, c=id_cliente, n=nome_funcao, n1=nome_funcao1, p1=funcao1, p=funcao))}}">Adicione</a></p>{{	
+	pass
+	}}
+</div>			    
+</div>
+							    
+<div id="tabs2-pane4" class="tab-pane">
+<div class="well">
+	{{
+	if detalhes.hosts.if4 != "" or None:
+		}}<h4><span style="color: black;">{{=detalhes.hosts.if4}}</span></h4>
+	<p><b>IP</b>:&nbsp;&nbsp;{{=detalhes.hosts.ip4}}</p>
+	<p><b>Máscara</b>:&nbsp;&nbsp;{{=detalhes.hosts.masc4}}</p>
+	<p><b>Obs</b>:&nbsp;&nbsp;{{=detalhes.hosts.obs4}}</p>{{
+	
+	else:
+	}}<p style="text-align: center;">Aninda não existe uma interface de rede aqui!</p><br><br><br>
+	<p style="text-align: center;"><a class="btn" href="{{=URL('initial', 'edit_host', 
+	vars=dict(f=filtro, c=id_cliente, n=nome_funcao, n1=nome_funcao1, p1=funcao1, p=funcao))}}">Adicione</a></p>{{	
+	pass
+	}}
+</div>
+</div>
+
+</div><!-- /.tab-content -->
+</div>
+<div>
+             
+            
+<div class="span10"><br><br>
+<div class="tabbable"><!-- /.tabbable -->
+<ul class="nav nav-tabs">
+<li class="active"><a href="#pane1" data-toggle="tab">Serviços</a></li>
+<li><a href="#pane2" data-toggle="tab">Observações Gerais</a></li>
+<li><a href="#pane3" data-toggle="tab">Rotas</a></li>
+</ul>
+
+<div class="tab-content"><!-- /.tab-content -->
+<div id="pane1" class="tab-pane active">
+<div class="well">
+<p>{{=detalhes.hosts.servicos}}</p>
+</div>
+</div>
+
+<div id="pane2" class="tab-pane">
+<div class="well">
+<p>{{=detalhes.hosts.obs_gerais}}</p>
+</div>
+</div>
+
+<div id="pane3" class="tab-pane">
+<div class="well">
+<p>{{=detalhes.hosts.rotas}}</p>
+</div>
+</div>
+    
+</div><!-- /.tab-content -->
+</div><!-- /.tabbable -->
+</div>
+
+
+
+
+
+{{end}}
+

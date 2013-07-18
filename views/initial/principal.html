@@ -1,0 +1,94 @@
+{{extend 'layout.html'}}
+
+
+{{block center}}
+<div class="span5" >
+<div class="well">
+<h5><span style="color: black;">Últimos contatos globais adiconados</span></h3>
+
+<table class="table table-bordered table-striped table-hover">
+    <thead>
+      <tr>
+        <th>Empresa</th>
+        <th>Telefone</th>
+    </tr>
+    </thead>
+    <tbody>
+{{
+for row in agen_glo:   
+	  }}<tr>
+        <td>{{=row[0]}}</td>
+        <td>{{=row[1]}}</td>
+      </tr>{{
+   pass   
+}}
+</tbody>
+</table>
+
+</div>
+</div>
+
+<div class="span5" >
+<div class="well">
+<h5><span style="color: black;">Últimos contatos particulares adiconados</span></h3>
+
+<table class="table table-bordered table-striped table-hover">
+    <thead>
+      <tr>
+        <th>Empresa</th>
+        <th>Telefone</th>
+    </tr>
+    </thead>
+    <tbody>
+{{
+for row in agen_par:   
+    }}<tr>
+        <td>{{=row[0]}}</td>
+        <td>{{=row[1]}}</td>
+      </tr>{{
+   pass   
+}}
+</tbody>
+</table>
+
+</div>
+</div>
+
+<div class="span11">
+<div class="well">
+<h5><span style="color: black;">Últimas ligações realizadas pela agenda</span></h3>
+
+<table class="table table-bordered table-striped table-hover">
+    <thead>
+      <tr>
+        <th>Ramal</th>
+        <th>Telefone</th>
+        <th>Empresa</th>
+        <th>Data</th>
+    </tr>
+    </thead>
+    <tbody>
+{{
+for row in ligacoes:   
+    }}<tr>
+        <td>{{=row[1]}}</td>
+        <td>{{=row[2]}}</td>
+        <td>{{=row[3]}}</td>
+        <td>{{=row[4]}}</td>
+      </tr>{{
+   pass   
+}}
+</tbody>
+  </table>
+
+</div>
+</div>
+
+
+{{
+claro = '900'
+tim = '500'
+}}
+
+
+{{end}}

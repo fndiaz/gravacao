@@ -1,0 +1,60 @@
+{{extend 'layout.html'}}
+
+{{block center}}
+
+
+<a id="button" type="button" class="btn" data-loading-text="Carregando..." href="/initial/agenda" rel="popover" data-content="It's so simple to create a tooltop for my website!" data-original-title="Twitter Bootstrap Popover">teste</a>
+
+<input type="button" value="OK" onclick="funcao()"/>
+<script type="text/javascript">  
+  
+    function funcao(){  
+        decisao = confirm("olá!!");
+        if(decisao){
+            location.href="/initial/principal";
+        }  
+    }   
+</script> 
+
+ 
+<a href="#" id="example" type="button" class="btn btn-danger" rel="popover" data-content="It's so simple to create a tooltop for my website!" data-original-title="Twitter Bootstrap Popover" data-loading-text="Carregando...">hover for popover</a>
+
+<a id="button" type="button" class="btn" data-loading-text="Carregando..." href="" rel="popover" data-content="Aqui será gerado o backup das gravações em relação a data específicada" data-original-title="Backup automatizado">Backup</a>
+
+<script src="{{=URL('static','js/bootstrap.min.js')}}"></script>
+<script>  
+$(function ()  
+{ $("#example").popover({ placement: "top", trigger: "hover" });  
+});  
+
+$('#example').button();
+
+$('#example').click(function() {
+    $(this).button('loading');
+
+});
+</script>
+
+
+
+
+
+<script type="text/javascript">
+$(function(){
+    $("#novo").click(function(){
+        $("#salvar").removeAttr('disabled');
+    }); 
+});
+</script>
+
+
+<input type="button" value="Novo" id="novo" />
+<input type="button" disabled="disabled" id="salvar" value="Salvar" />
+
+
+
+{{end}}
+
+
+
+
